@@ -48,8 +48,10 @@ function numeriCasuali(numMin, numMax) {
 
 bottonePlay.addEventListener("click", function(){
 
-    contenitore.innerHTML = "";
+    
 
+    contenitore.innerHTML = "";
+    punteggioFinale.innerHTML = "";
 
     const quadratoLungoValore = quadratoLungo.value;
     const quadratoAltoValore = quadratoAlto.value;
@@ -57,7 +59,7 @@ bottonePlay.addEventListener("click", function(){
 
     const caselleTotali = quadratoAltoValore * quadratoLungoValore;
 
-    let statoGioco = "gioco";
+   
 
     let punti = 0;
 
@@ -85,7 +87,8 @@ bottonePlay.addEventListener("click", function(){
     console.log(numeriBombe);
     
     
-    
+
+        
     for(let i = 1; i <= caselleTotali; i++){
         
         const elementoQuadrato = getQuadrato();
@@ -93,29 +96,34 @@ bottonePlay.addEventListener("click", function(){
         elementoQuadrato.style.width = `calc(100% / ${quadratoLungoValore})`
         elementoQuadrato.style.height = `calc(100% / ${quadratoAltoValore})`
         
-        
         contenitore.append(elementoQuadrato);
-        
+
         elementoQuadrato.append(i);
 
+        
+        
         
 
             
         elementoQuadrato.addEventListener("click", function(){  
-        // console.log(i);
+            // console.log(i);
         
-        
+    
             
             if (numeriBombe.includes(i)) {
                 
                 elementoQuadrato.classList.add("color_red");
                 
                 
-                statoGioco = "finito";
                 
                 alert("morto");
                 
+                
+                
                 punteggioFinale.innerHTML = "Hai totalizzato: " + punti + " punti";
+                
+                
+                
                 
             }else{
                 
@@ -123,26 +131,36 @@ bottonePlay.addEventListener("click", function(){
                 
                 elementoQuadrato.classList.add("click");
             }
-            
+        
             console.log(punti);
-            
+        
             if (punti == (caselleTotali - 16)) {
-                
+
                 alert("hai vinto");
-                statoGioco = "finito";
 
                 punteggioFinale.innerHTML = "Bravo, hai totalizzato: " + punti + " punti";
 
-        
+
             }
-        
-        
-            
-        }, {once : true})
 
             
             
+        }, {once : true})
+        
+    
+        
+    
+        
+
+
+
+
     }
+
+    
+            
         
 
 })
+
+
