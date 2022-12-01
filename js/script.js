@@ -45,7 +45,6 @@ function numeriCasuali(numMin, numMax) {
 
 
 
-
 bottonePlay.addEventListener("click", function(){
 
     
@@ -90,7 +89,7 @@ bottonePlay.addEventListener("click", function(){
     console.log(numeriBombe);
     
     
-
+    let divListElement = []
         
     for(let i = 1; i <= caselleTotali; i++){
         
@@ -104,7 +103,7 @@ bottonePlay.addEventListener("click", function(){
         elementoQuadrato.append(i);
 
         
-        
+        divListElement.push(elementoQuadrato);
         
 
             
@@ -115,16 +114,25 @@ bottonePlay.addEventListener("click", function(){
             
             if (numeriBombe.includes(i)) {
                 
-                elementoQuadrato.classList.add("color_red");
+
+                    
+                // elementoQuadrato.classList.add("color_red");
                 
                 
-                
+
+
+                for(let i = 0; i < numeriBombe.length; i++){
+                    divListElement[numeriBombe[i]].classList.add("color_red");
+                }
+
+
                 // alert("morto");
-                
                 
                 
                 punteggioFinale.innerHTML = "Mi spiace hai beccato una bomba, hai perso, hai totalizzato: " + punti + " punti";
                 
+
+
                 contenitore.classList.add("fineGioco");
                 
                 
@@ -161,7 +169,6 @@ bottonePlay.addEventListener("click", function(){
 
     }
 
-    
             
         
 
