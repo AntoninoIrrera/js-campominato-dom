@@ -18,7 +18,7 @@ function getQuadrato(){
 
     div.addEventListener("click", function(){
         
-        div.classList.toggle("click");
+        div.classList.add("click");
         
     })
     
@@ -27,14 +27,18 @@ function getQuadrato(){
 
 
 
-    function numeriCasuali(numMin, numMax) {
-
-        const numeroCasuale = Math.floor(Math.random() * (numMax - numMin) + 1) + numMin;
-
-        return numeroCasuale;
-    }
+function numeriCasuali(numMin, numMax) {
+    const numeroCasuale = Math.floor(Math.random() * (numMax - numMin) + 1) + numMin;
+    return numeroCasuale;
+}
 
 
+
+function fineGioco(){
+
+    
+
+}
 
 
 
@@ -48,7 +52,6 @@ bottonePlay.addEventListener("click", function(){
 
     const caselleTotali = quadratoAltoValore * quadratoLungoValore;
 
-    // let statoGioco = false;
 
    let punti = 0;
 
@@ -66,36 +69,34 @@ bottonePlay.addEventListener("click", function(){
         
         elementoQuadrato.addEventListener("click", function(){
         
-            // do{
 
                 
-                // console.log(i);
-    
-                punti = punti + 1;
-    
-                console.log(punti);
+            // console.log(i);
 
-                if(numeriBombe.includes(i)){
-    
-                    elementoQuadrato.classList.add("color_red");
-    
-                    alert("morto");
-    
-                    statoGioco = true;
-    
-                }
-    
-                
-                if(punti == (caselleTotali - 16)){
-                
-                    alert("hai vinto");
-                }
-                
-                
-            // }while(statoGioco == true);
+            punti = punti + 1;
+
+            console.log(punti);
+           
+            if(numeriBombe.includes(i)){
+
+                elementoQuadrato.classList.add("color_red");
+
+                punti = punti - 1;
+
+                alert("morto");
+
+            }
+
             
-        })
-        
+            if(punti == (caselleTotali - 16)){
+            
+                alert("hai vinto");
+            }
+                
+                
+            
+        }, {once : true})
+            
         
     }
     
