@@ -48,7 +48,9 @@ bottonePlay.addEventListener("click", function(){
 
     const caselleTotali = quadratoAltoValore * quadratoLungoValore;
 
-    let punti = 0;
+    // let statoGioco = false;
+
+   let punti = 0;
 
     for(let i = 1; i <= caselleTotali; i++){
         
@@ -63,29 +65,42 @@ bottonePlay.addEventListener("click", function(){
         elementoQuadrato.append(i);
         
         elementoQuadrato.addEventListener("click", function(){
-            
-            // console.log(i);
+        
+            // do{
 
-            punti = punti + 1;
+                
+                // console.log(i);
+    
+                punti = punti + 1;
+    
+                console.log(punti);
 
-            if(numeriBombe.includes(i)){
-
-                elementoQuadrato.classList.add("color_red");
-
-                alert("morto");
-
-            }
-
+                if(numeriBombe.includes(i)){
+    
+                    elementoQuadrato.classList.add("color_red");
+    
+                    alert("morto");
+    
+                    statoGioco = true;
+    
+                }
+    
+                
+                if(punti == (caselleTotali - 16)){
+                
+                    alert("hai vinto");
+                }
+                
+                
+            // }while(statoGioco == true);
             
         })
         
         
     }
     
-    if(punti == 10){
-
-        console.log(punti);
-    }
+    
+    
 
     
 
