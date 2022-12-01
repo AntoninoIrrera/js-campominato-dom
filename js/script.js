@@ -17,14 +17,22 @@ function getQuadrato(){
     div.classList.add("quadrato");
 
     div.addEventListener("click", function(){
-    
+        
         div.classList.toggle("click");
-    
+        
     })
-
+    
     return div;
 }
 
+
+
+    function numeriCasuali(numMin, numMax) {
+
+        const numeroCasuale = Math.floor(Math.random() * (numMax - numMin) + 1) + numMin;
+
+        return numeroCasuale;
+    }
 
 
 
@@ -40,6 +48,8 @@ bottonePlay.addEventListener("click", function(){
 
     const caselleTotali = quadratoAltoValore * quadratoLungoValore;
 
+    let punti = 0;
+
     for(let i = 1; i <= caselleTotali; i++){
         
         const elementoQuadrato = getQuadrato();
@@ -54,14 +64,57 @@ bottonePlay.addEventListener("click", function(){
         
         elementoQuadrato.addEventListener("click", function(){
             
-            console.log(i);
+            // console.log(i);
+
+            punti = punti + 1;
+
+            if(numeriBombe.includes(i)){
+
+                elementoQuadrato.classList.add("color_red");
+
+                alert("morto");
+
+            }
+
             
         })
         
         
     }
     
+    if(punti == 10){
+
+        console.log(punti);
+    }
+
     
+
+    const numeriBombe = [];
+
+
+    while (numeriBombe.length < 16) {
+
+
+        let numeroCasuale = numeriCasuali(1, caselleTotali);
+
+        // console.log(numeroCasuale);
+
+
+
+        if (!numeriBombe.includes(numeroCasuale)) {
+
+            numeriBombe.push(numeroCasuale);
+
+        }
+
+
+    }
+
+    console.log(numeriBombe);
+
+
+
+
     
      
     
