@@ -53,3 +53,12 @@ footer{
 .color_red{
     background-color: red;
 }
+
+
+#punteggio{
+
+    position: absolute;
+    left: 0;
+    top: 100px;
+
+}

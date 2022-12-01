@@ -8,7 +8,9 @@ const quadratoLungo = document.getElementById("quadratoLungo");
 const quadratoAlto = document.getElementById("quadratoAlto");
 
 
-const erroreNumero = document.getElementById("outputErroreNumero");
+
+const punteggioFinale = document.getElementById("punteggio");
+
 
 function getQuadrato(){
 
@@ -16,11 +18,11 @@ function getQuadrato(){
 
     div.classList.add("quadrato");
 
-    div.addEventListener("click", function(){
+    // // div.addEventListener("click", function(){
         
-        div.classList.add("click");
+        // div.classList.add("click");
         
-    })
+    // })
     
     return div;
 }
@@ -34,76 +36,30 @@ function numeriCasuali(numMin, numMax) {
 
 
 
-function fineGioco(){
 
-    
 
-}
+
+
+
+
+
 
 
 
 bottonePlay.addEventListener("click", function(){
 
     contenitore.innerHTML = "";
-    
+
+
     const quadratoLungoValore = quadratoLungo.value;
     const quadratoAltoValore = quadratoAlto.value;
 
 
     const caselleTotali = quadratoAltoValore * quadratoLungoValore;
 
+    let statoGioco = "gioco";
 
-   let punti = 0;
-
-    for(let i = 1; i <= caselleTotali; i++){
-        
-        const elementoQuadrato = getQuadrato();
-        
-        elementoQuadrato.style.width = `calc(100% / ${quadratoLungoValore})`
-        elementoQuadrato.style.height = `calc(100% / ${quadratoAltoValore})`
-        
-        
-        contenitore.append(elementoQuadrato);
-        
-        elementoQuadrato.append(i);
-        
-        elementoQuadrato.addEventListener("click", function(){
-        
-
-                
-            // console.log(i);
-
-            punti = punti + 1;
-
-            console.log(punti);
-           
-            if(numeriBombe.includes(i)){
-
-                elementoQuadrato.classList.add("color_red");
-
-                punti = punti - 1;
-
-                alert("morto");
-
-            }
-
-            
-            if(punti == (caselleTotali - 16)){
-            
-                alert("hai vinto");
-            }
-                
-                
-            
-        }, {once : true})
-            
-        
-    }
-    
-    
-    
-
-    
+    let punti = 0;
 
     const numeriBombe = [];
 
@@ -127,12 +83,66 @@ bottonePlay.addEventListener("click", function(){
     }
 
     console.log(numeriBombe);
-
-
-
-
     
-     
     
+    
+    for(let i = 1; i <= caselleTotali; i++){
+        
+        const elementoQuadrato = getQuadrato();
+        
+        elementoQuadrato.style.width = `calc(100% / ${quadratoLungoValore})`
+        elementoQuadrato.style.height = `calc(100% / ${quadratoAltoValore})`
+        
+        
+        contenitore.append(elementoQuadrato);
+        
+        elementoQuadrato.append(i);
+
+        
+
+            
+        elementoQuadrato.addEventListener("click", function(){  
+        // console.log(i);
+        
+        
+            
+            if (numeriBombe.includes(i)) {
+                
+                elementoQuadrato.classList.add("color_red");
+                
+                
+                statoGioco = "finito";
+                
+                alert("morto");
+                
+                punteggioFinale.innerHTML = "Hai totalizzato: " + punti + " punti";
+                
+            }else{
+                
+                punti++;
+                
+                elementoQuadrato.classList.add("click");
+            }
+            
+            console.log(punti);
+            
+            if (punti == (caselleTotali - 16)) {
+                
+                alert("hai vinto");
+                statoGioco = "finito";
+
+                punteggioFinale.innerHTML = "Bravo, hai totalizzato: " + punti + " punti";
+
+        
+            }
+        
+        
+            
+        }, {once : true})
+
+            
+            
+    }
+        
 
 })
