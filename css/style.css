@@ -1,0 +1,48 @@
+body{
+    height: 100vh;
+}
+
+header{
+    /* height: 90px; */
+    padding: 0.5rem;
+}
+
+main{
+    height: calc(100% - 180px);
+    background-color: #7fffd4;
+    overflow-y: auto;
+}
+
+
+footer{
+    /* height: 90px; */
+    padding: 0.5rem;
+}
+
+/* da valutare se tenerli */
+#output{
+    width: 750px;
+    height: 750px;
+    margin: auto;
+}
+
+
+.quadrato{
+    /* width: calc(100% / 10); */
+    /* height: calc(100% / 10); */
+    border: 1px solid black;
+
+
+    font-size: 1.5rem;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.click{
+    background-color: aqua;
+}
