@@ -122,7 +122,7 @@ bottonePlay.addEventListener("click", function(){
 
 
                 for(let i = 0; i < numeriBombe.length; i++){
-                    divListElement[numeriBombe[i]].classList.add("color_red");
+                    divListElement[numeriBombe[i] - 1].classList.add("color_red");
                 }
 
 
