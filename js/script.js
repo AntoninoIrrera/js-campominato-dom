@@ -51,7 +51,10 @@ bottonePlay.addEventListener("click", function(){
     
 
     contenitore.innerHTML = "";
+    contenitore.classList.remove("fineGioco");
     punteggioFinale.innerHTML = "";
+
+
 
     const quadratoLungoValore = quadratoLungo.value;
     const quadratoAltoValore = quadratoAlto.value;
@@ -116,13 +119,13 @@ bottonePlay.addEventListener("click", function(){
                 
                 
                 
-                alert("morto");
+                // alert("morto");
                 
                 
                 
-                punteggioFinale.innerHTML = "Hai totalizzato: " + punti + " punti";
+                punteggioFinale.innerHTML = "Mi spiace hai beccato una bomba, hai perso, hai totalizzato: " + punti + " punti";
                 
-                
+                contenitore.classList.add("fineGioco");
                 
                 
             }else{
@@ -136,10 +139,11 @@ bottonePlay.addEventListener("click", function(){
         
             if (punti == (caselleTotali - 16)) {
 
-                alert("hai vinto");
+                // alert("hai vinto");
 
-                punteggioFinale.innerHTML = "Bravo, hai totalizzato: " + punti + " punti";
+                punteggioFinale.innerHTML = "Bravo, sei riuscito a non beccare nessuna bomba, hai vinto, hai totalizzato il massimo dei punti: " + punti;
 
+                contenitore.classList.add("fineGioco");
 
             }
 

@@ -58,7 +58,15 @@ footer{
 #punteggio{
 
     position: absolute;
-    left: 0;
+    left: -280px;
     top: 100px;
+
+}
+
+
+.fineGioco{
+
+    pointer-events: none;
+    cursor: default;
 
 }
